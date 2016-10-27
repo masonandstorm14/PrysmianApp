@@ -1,10 +1,13 @@
 package com.example.mason.prysmianapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 public class necFillRatio extends AppCompatActivity {
@@ -16,36 +19,27 @@ public class necFillRatio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nec_fill_ratio);
 
+        //sets view items
         final Spinner nominalDiameter = (Spinner) findViewById(R.id.spin_insideDiameter);
         final Spinner conduit = (Spinner) findViewById(R.id.spin_conduit);
+        Button calculate = (Button) findViewById(R.id.btn_Calculate);
+        final EditText B3 = (EditText) findViewById(R.id.editText_insideDiamter);
+        final EditText B4 = (EditText) findViewById(R.id.editText_phaseCables);
+        final EditText B5 = (EditText) findViewById(R.id.editText_phaseCableDiameter);
+        final EditText B6 = (EditText) findViewById(R.id.editText_groundWire);
+        final EditText B7 = (EditText) findViewById(R.id.editText_groundWireDiameter);
+        final EditText B8 = (EditText) findViewById(R.id.editText_neutralWire);
+        final EditText B9 = (EditText) findViewById(R.id.editText_neutralWireDiameter);
+
+
+        //changes the conduit Diameter options based on the Conduit Type
+        final nominalDiameterAdapterSetter diameterSetter = new nominalDiameterAdapterSetter();
         conduit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (id == 0) {
-                    nominalDiameter.setAdapter(adapterSCH40PVC("1/2\"", "3/4\"", "1\"", "1-1/4\"", "1-1/2\"", "2\"", "2-1/2\"", "3\"", "3-1/2\"", "4\"", "5\"", "6\""));
-                } else if (id == 1) {
-                    nominalDiameter.setAdapter(adapterRMC("1/2\"", "3/4\"", "1\"", "1-1/4\"", "1-1/2\"", "2\"", "2-1/2\"", "3\"", "3-1/2\"", "4\"", "5\"", "6\""));
-                } else if (id == 2) {
-                    nominalDiameter.setAdapter(adapterSCH80PVC("1/2\"", "3/4\"", "1\"", "1-1/4\"", "1-1/2\"", "2\"", "2-1/2\"", "3\"", "3-1/2\"", "4\"", "5\"", "6\""));
-                } else if (id == 3) {
-                    nominalDiameter.setAdapter(adapterPVC_TYPE_A("1/2\"", "3/4\"", "1\"", "1-1/4\"", "1-1/2\"", "2\"", "2-1/2\"", "3\"", "3-1/2\"", "4\""));
-                } else if (id == 4) {
-                    nominalDiameter.setAdapter(adapterPVC_TYPE_EB("2\"", "3\"", "3-1/2\"", "4\"", "5\"", "6\""));
-                } else if (id == 5) {
-                    nominalDiameter.setAdapter(adapterEMT("1/2\"", "3/4\"", "1\"", "1-1/4\"", "1-1/2\"", "2\"", "2-1/2\"", "3\"", "3-1/2\"", "4\""));
-                } else if (id == 6) {
-                    nominalDiameter.setAdapter(adapterENT("1/2\"", "3/4\"", "1\"", "1-1/4\"", "1-1/2\"", "2\""));
-                } else if (id == 7) {
-                    nominalDiameter.setAdapter(adapterIMC("1/2\"", "3/4\"", "1\"", "1-1/4\"", "1-1/2\"", "2\"", "2-1/2\"", "3\"", "3-1/2\"", "4\""));
-                } else if (id == 8) {
-                    nominalDiameter.setAdapter(adapterFMC("1\"", "1/2\"", "3/4\"", "1\"", "1-1/4\"", "1-1/2\"", "2\"", "2-1/2\"", "3\"", "3-1/2\"", "4\""));
-                } else if (id == 9) {
-                    nominalDiameter.setAdapter(adapterLFNC_A("1\"", "1/2\"", "3/4\"", "1\"", "1-1/4\"", "1-1/2\"", "2\""));
-                } else if (id == 10) {
-                    nominalDiameter.setAdapter(adapterLFNC_B("1\"", "1/2\"", "3/4\"", "1\"", "1-1/4\"", "1-1/2\"", "2\""));
-                } else if (id == 11) {
-                    nominalDiameter.setAdapter(adapterLFMC("1\"", "1/2\"", "3/4\"", "1\"", "1-1/4\"", "1-1/2\"", "2\"", "2-1/2\"", "3\"", "3-1/2\"", "4\""));
-                }
+                arraySpinner = diameterSetter.nominalDiameterAdapterSetter(id);
+                ArrayAdapter<String>  adapter = new ArrayAdapter<String>(necFillRatio.this, android.R.layout.simple_list_item_1, arraySpinner);
+                nominalDiameter.setAdapter(adapter);
             }
 
             @Override
@@ -53,90 +47,28 @@ public class necFillRatio extends AppCompatActivity {
 
             }
         });
+
+        //when calculate button is pressed
+        calculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(B3.getText() != null && B4 != null && B5 != null && B6 != null && B7 != null && B8 != null && B9 != null){
+                    FillRatioCalc calc = new FillRatioCalc();
+                    /// TODO: 10/27/2016 fix this not kow why 
+                    double calculatedFillRatio = calc.CalcFillRatio(Double.parseDouble(B4.toString()),Double.parseDouble(B5.toString()),Double.parseDouble(B6.toString()),Double.parseDouble(B7.toString()),Double.parseDouble(B8.toString()),Double.parseDouble(B9.toString()),Double.parseDouble(B3.toString()));
+                    mover(FillRatioResult.class, calculatedFillRatio);
+                }
+            }
+        });
+
+
     }
 
-    protected ArrayAdapter<String> adapterSCH40PVC(String two, String three, String four, String five, String six, String seven, String eight, String nine, String ten, String eleven, String twelve, String therteen){
-        arraySpinner = new String[]{
-                two, three, four, five, six, seven,nine, eight, ten ,eleven, twelve, therteen
-        };
-        ArrayAdapter<String>  adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arraySpinner);
-        return adapter;
-    }
-    protected ArrayAdapter<String> adapterRMC(String two, String three, String four, String five, String six, String seven, String eight,String nine, String ten, String eleven, String twelve, String therteen){
-        arraySpinner = new String[]{
-                two, three, four, five, six, seven, eight,nine, ten ,eleven, twelve, therteen
-        };
-        ArrayAdapter<String>  adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arraySpinner);
-        return adapter;
-    }
-    protected ArrayAdapter<String> adapterSCH80PVC(String two, String three, String four, String five, String six, String seven, String eight,String nine, String ten, String eleven, String twelve, String therteen){
-        arraySpinner = new String[]{
-                two, three, four, five, six, seven, eight,nine, ten ,eleven, twelve, therteen
-        };
-        ArrayAdapter<String>  adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arraySpinner);
-        return adapter;
-    }
-    protected ArrayAdapter<String> adapterPVC_TYPE_A(String two, String three, String four, String five, String six, String seven, String eight,String nine, String ten, String eleven){
-        arraySpinner = new String[]{
-                two, three, four, five, six, seven, eight,nine, ten ,eleven
-        };
-        ArrayAdapter<String>  adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arraySpinner);
-        return adapter;
-    }
-    protected ArrayAdapter<String> adapterPVC_TYPE_EB(String seven,String nine, String ten, String eleven, String twelve, String therteen){
-        arraySpinner = new String[]{
-                seven,nine,ten ,eleven, twelve, therteen
-        };
-        ArrayAdapter<String>  adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arraySpinner);
-        return adapter;
-    }
-    protected ArrayAdapter<String> adapterEMT(String two, String three, String four, String five, String six, String seven, String eight,String nine, String ten, String eleven){
-        arraySpinner = new String[]{
-                two, three, four, five, six, seven, eight,nine, ten ,eleven
-        };
-        ArrayAdapter<String>  adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arraySpinner);
-        return adapter;
-    }
-    protected ArrayAdapter<String> adapterENT(String two, String three, String four, String five, String six, String seven){
-        arraySpinner = new String[]{
-                two, three, four, five, six, seven
-        };
-        ArrayAdapter<String>  adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arraySpinner);
-        return adapter;
-    }
-    protected ArrayAdapter<String> adapterIMC(String two, String three, String four, String five, String six, String seven, String eight,String nine, String ten, String eleven){
-        arraySpinner = new String[]{
-                two, three, four, five, six, seven, eight,nine, ten ,eleven
-        };
-        ArrayAdapter<String>  adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arraySpinner);
-        return adapter;
-    }
-    protected ArrayAdapter<String> adapterFMC(String one, String two, String three, String four, String five, String six, String seven, String eight,String nine, String ten, String eleven){
-        arraySpinner = new String[]{
-                one, two, three, four, five, six, seven, eight,nine, ten ,eleven
-        };
-        ArrayAdapter<String>  adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arraySpinner);
-        return adapter;
-    }
-    protected ArrayAdapter<String> adapterLFNC_A(String one, String two, String three, String four, String five, String six, String seven){
-        arraySpinner = new String[]{
-                one, two, three, four, five, six, seven
-        };
-        ArrayAdapter<String>  adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arraySpinner);
-        return adapter;
-    }
-    protected ArrayAdapter<String> adapterLFNC_B(String one, String two, String three, String four, String five, String six, String seven){
-        arraySpinner = new String[]{
-                one, two, three, four, five, six, seven
-        };
-        ArrayAdapter<String>  adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arraySpinner);
-        return adapter;
-    }
-    protected ArrayAdapter<String> adapterLFMC(String one, String two, String three, String four, String five, String six, String seven, String eight,String nine, String ten, String eleven){
-        arraySpinner = new String[]{
-                one, two, three, four, five, six, seven, eight,nine, ten ,eleven
-        };
-        ArrayAdapter<String>  adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arraySpinner);
-        return adapter;
+    private void mover(Class moveTo, double calculatedFillRatio){
+        Intent i = new Intent(this,moveTo);
+        Bundle b = new Bundle();
+        b.putDouble("calculatedFillRatio", calculatedFillRatio);
+        i.putExtras(b);
+        startActivity(i);
     }
 }
