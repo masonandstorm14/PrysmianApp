@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mason.prysmianapp.necFillRatio">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Choose Conduit Type"
+                android:layout_marginTop="10dp"
+                android:id="@+id/Text_conduitType"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/Text_conduitType"
+                android:spinnerMode="dropdown"
+                android:entries="@array/conduitType"
+                android:id="@+id/spin_conduit">
+            </Spinner>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Enter Conduit Inside Diameter(Inches)"
+                android:layout_below="@+id/spin_conduit"
+                android:layout_marginTop="10dp"
+                android:id="@+id/text_insideDiameter"/>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/text_insideDiameter"
+                android:id="@+id/spin_insideDiameter">
+            </Spinner>
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_below="@id/spin_insideDiameter"
+                android:inputType="number"
+                android:id="@+id/edtiText_insideDiamter"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Enter Number Of Phase Cables"
+                android:id="@+id/text_phaseCables"
+                android:layout_below="@id/edtiText_insideDiamter"
+                android:layout_marginTop="10dp"/>
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:layout_below="@id/text_phaseCables"
+                android:id="@+id/editText_phaseCables"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Enter Phase Cable Diameter(Inches)"
+                android:id="@+id/text_phaseCablesDiameter"
+                android:layout_below="@+id/editText_phaseCables"
+                android:layout_marginTop="10dp"/>
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:layout_below="@id/text_phaseCablesDiameter"
+                android:id="@+id/editText_phaseCableDiameter"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Enter Number of Ground Wire"
+                android:id="@+id/text_groundWire"
+                android:layout_below="@+id/editText_phaseCableDiameter"
+                android:layout_marginTop="10dp"/>
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:layout_below="@+id/text_groundWire"
+                android:id="@+id/editText_groundWire"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Enter Diameter of Ground Wire(Inches)"
+                android:id="@+id/text_groundWireDiameter"
+                android:layout_below="@+id/editText_groundWire"
+                android:layout_marginTop="10dp"/>
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:layout_below="@+id/text_groundWireDiameter"
+                android:id="@+id/editText_groundWireDiameter"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Enter Number of Neutral Wires"
+                android:id="@+id/text_neutralWire"
+                android:layout_below="@+id/editText_groundWireDiameter"
+                android:layout_marginTop="10dp"/>
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:layout_below="@+id/text_neutralWire"
+                android:id="@+id/editText_neutralWire"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Enter Neutral Wire Diameter(Inches)"
+                android:id="@+id/text_neutralWireDiameter"
+                android:layout_below="@+id/editText_neutralWire"
+                android:layout_marginTop="10dp"/>
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:layout_below="@+id/text_neutralWireDiameter"
+                android:id="@+id/editText_neutralWireDiameter"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/btn_Calculate"
+                android:layout_below="@+id/editText_neutralWireDiameter"
+                android:layout_centerHorizontal="true"
+                android:text="Calculate"/>
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

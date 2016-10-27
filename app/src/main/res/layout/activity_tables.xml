@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mason.prysmianapp.tables"
+    android:id="@+id/mage">
+    
+
+    <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+        android:layout_width="400dp"
+        android:layout_height="300dp"
+        android:id="@+id/image_chart"
+        android:src="@drawable/table67"
+        android:layout_below="@+id/btn_C"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spin_ConductorType"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:entries="@array/conductor_array" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spin_Circuit"
+        android:layout_below="@+id/spin_ConductorType"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:spinnerMode="dropdown" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="C"
+        android:id="@+id/btn_C"
+        android:layout_below="@+id/spin_Circuit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#ff0000" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="A"
+        android:id="@+id/btn_A"
+        android:layout_below="@+id/spin_Circuit"
+        android:layout_toRightOf="@+id/btn_C"
+        android:layout_toEndOf="@+id/btn_C" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="C/F"
+        android:id="@+id/btn_cf"
+        android:layout_below="@+id/spin_Circuit"
+        android:layout_toLeftOf="@+id/btn_I"
+        android:layout_toStartOf="@+id/btn_I" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="I"
+        android:id="@+id/btn_I"
+        android:layout_below="@+id/spin_Circuit"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="T"
+        android:id="@+id/btn_T"
+        android:layout_below="@+id/spin_Circuit"
+        android:layout_toLeftOf="@+id/btn_cf"
+        android:layout_toStartOf="@+id/btn_cf"
+        android:textColor="#ff0000" />
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Nec Fill Ratio"
+        android:id="@+id/btn_fillRatio"
+        android:layout_below="@id/image_chart"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

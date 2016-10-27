@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">PrysmianApp</string>
+    <string name="Nec">NEC Ampacity Tables</string>
+    <string name="filler">Module</string>
+    <string name="prysmainlogo">PrysmainLogo</string>
+    <string name="LogoDiscription">Prysmain Logo</string>
+
+    <string-array name="conductor_array">
+        <item>Single Conductor Triplexed - Isolated in Air</item>
+        <item>Single Conductor - Isolated in Air</item>
+        <item>Three Conductor - Isolated in Air</item>
+        <item>Triplexed or Three Single Conductor - in Isolated Conduit in Air</item>
+        <item>Three Conductor - in Isolated Conduit in Air</item>
+        <item>Three Single Conductors - in Underground Electrical Ducts</item>
+        <item>Three Conductor - in Underground Electrical Ducts</item>
+        <item>Single Conductor - Direct Buried in Earth</item>
+        <item>Three Conductor - Direct Buried in Earth</item>
+        <item>Triplexed Conductor - Direct Buried in Earth</item>
+    </string-array>
+
+    <string-array name="conduitType">
+        <item>SCH 40 PVC</item>
+        <item>RMC</item>
+        <item>SCH 80 PCV</item>
+        <item>PVC_Type_A</item>
+        <item>PVC_Type_EB</item>
+        <item>EMT</item>
+        <item>ENT</item>
+        <item>IMC</item>
+        <item>FMC</item>
+        <item>LFNC-A</item>
+        <item>LFNC-B</item>
+        <item>LFMC</item>
+    </string-array>
+
+    <string-array name="circuits_array">
+        <item>One Circuit</item>
+        <item>Two Circuits</item>
+        <item>Three Circuits</item>
+    </string-array>
+
+    <string-array name="nominalDiameter">
+        <item>3/8"</item>
+        <item>1/2"</item>
+        <item>3/4</item>
+        <item>1"</item>
+        <item>1-1/4"</item>
+        <item>1-1/2"</item>
+        <item>2"</item>
+        <item>2-1/2"</item>
+        <item>3"</item>
+        <item>3-1/2"</item>
+        <item>4"</item>
+        <item>5"</item>
+        <item>6"</item>
+    </string-array>
+
+
+</resources>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mason.prysmianapp.FillRatioResult">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_fillRatioText"
+        android:layout_marginTop="20dp"
+        android:text="Fill Ratio"
+        android:textAlignment="center"
+        android:textSize="20dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_fillRatioResult"
+        android:text="filler"
+        android:layout_below="@+id/text_fillRatioText"
+        android:textAlignment="center"
+        android:textColor="@color/red"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_necFillRatioText"
+        android:text="NEC Maximum Fill Ratio"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:layout_below="@+id/text_fillRatioResult"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_necFillRatioResult"
+        android:text="filler"
+        android:textColor="@color/red"
+        android:textAlignment="center"
+        android:layout_below="@+id/text_necFillRatioText"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_requirementResultText"
+        android:text="Results"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:layout_below="@+id/text_necFillRatioResult"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_requirementResult"
+        android:text="filler"
+        android:textColor="@color/red"
+        android:textAlignment="center"
+        android:layout_below="@+id/text_requirementResultText"/>
+
+
+
+
+</RelativeLayout>
