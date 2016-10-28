@@ -34,12 +34,28 @@ public class necFillRatio extends AppCompatActivity {
 
         //changes the conduit Diameter options based on the Conduit Type
         final nominalDiameterAdapterSetter diameterSetter = new nominalDiameterAdapterSetter();
+        final conduitInsideDiameterCalc diameterCalc = new conduitInsideDiameterCalc();
         conduit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 arraySpinner = diameterSetter.nominalDiameterAdapterSetter(id);
                 ArrayAdapter<String>  adapter = new ArrayAdapter<String>(necFillRatio.this, android.R.layout.simple_list_item_1, arraySpinner);
                 nominalDiameter.setAdapter(adapter);
+
+                B3.setText(Double.toString(diameterCalc.conduitInsideDiameterCalc(id, nominalDiameter.getSelectedItemId())));
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        nominalDiameter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                B3.setText(Double.toString(diameterCalc.conduitInsideDiameterCalc(conduit.getSelectedItemId(), id)));
             }
 
             @Override
@@ -52,10 +68,10 @@ public class necFillRatio extends AppCompatActivity {
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(B3.getText() != null && B4 != null && B5 != null && B6 != null && B7 != null && B8 != null && B9 != null){
+                if( !B3.getText().toString().equals("") && !B4.getText().toString().equals("") && !B5.getText().toString().equals("") && !B6.getText().toString().equals("") && !B7.getText().toString().equals("") && !B8.getText().toString().equals("") && !B9.getText().toString().equals("")){
                     FillRatioCalc calc = new FillRatioCalc();
                     /// TODO: 10/27/2016 fix this not kow why 
-                    double calculatedFillRatio = calc.CalcFillRatio(Double.parseDouble(B4.toString()),Double.parseDouble(B5.toString()),Double.parseDouble(B6.toString()),Double.parseDouble(B7.toString()),Double.parseDouble(B8.toString()),Double.parseDouble(B9.toString()),Double.parseDouble(B3.toString()));
+                    double calculatedFillRatio = calc.CalcFillRatio(Double.parseDouble(B4.getText().toString()),Double.parseDouble(B5.getText().toString()),Double.parseDouble(B6.getText().toString()),Double.parseDouble(B7.getText().toString()),Double.parseDouble(B8.getText().toString()),Double.parseDouble(B9.getText().toString()),Double.parseDouble(B3.getText().toString()));
                     mover(FillRatioResult.class, calculatedFillRatio);
                 }
             }

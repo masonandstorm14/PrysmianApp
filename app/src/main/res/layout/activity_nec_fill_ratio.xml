@@ -40,11 +40,11 @@
                 android:id="@+id/spin_insideDiameter">
             </Spinner>
             <EditText
-                android:layout_width="50dp"
+                android:layout_width="75dp"
                 android:layout_height="match_parent"
                 android:layout_below="@id/spin_insideDiameter"
-                android:inputType="number"
-                android:id="@+id/editText_insideDiamter"/>
+                android:inputType="none"
+                android:id="@+id/editText_insideDiamter" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -53,9 +53,9 @@
                 android:layout_below="@id/editText_insideDiamter"
                 android:layout_marginTop="10dp"/>
             <EditText
-                android:layout_width="50dp"
+                android:layout_width="75dp"
                 android:layout_height="match_parent"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_below="@id/text_phaseCables"
                 android:id="@+id/editText_phaseCables"/>
             <TextView
@@ -66,9 +66,9 @@
                 android:layout_below="@+id/editText_phaseCables"
                 android:layout_marginTop="10dp"/>
             <EditText
-                android:layout_width="50dp"
+                android:layout_width="75dp"
                 android:layout_height="match_parent"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_below="@id/text_phaseCablesDiameter"
                 android:id="@+id/editText_phaseCableDiameter"/>
             <TextView
@@ -79,9 +79,9 @@
                 android:layout_below="@+id/editText_phaseCableDiameter"
                 android:layout_marginTop="10dp"/>
             <EditText
-                android:layout_width="50dp"
+                android:layout_width="75dp"
                 android:layout_height="match_parent"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_below="@+id/text_groundWire"
                 android:id="@+id/editText_groundWire"/>
             <TextView
@@ -92,9 +92,9 @@
                 android:layout_below="@+id/editText_groundWire"
                 android:layout_marginTop="10dp"/>
             <EditText
-                android:layout_width="50dp"
+                android:layout_width="75dp"
                 android:layout_height="match_parent"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_below="@+id/text_groundWireDiameter"
                 android:id="@+id/editText_groundWireDiameter"/>
             <TextView
@@ -105,9 +105,9 @@
                 android:layout_below="@+id/editText_groundWireDiameter"
                 android:layout_marginTop="10dp"/>
             <EditText
-                android:layout_width="50dp"
+                android:layout_width="75dp"
                 android:layout_height="match_parent"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_below="@+id/text_neutralWire"
                 android:id="@+id/editText_neutralWire"/>
             <TextView
@@ -118,9 +118,9 @@
                 android:layout_below="@+id/editText_neutralWire"
                 android:layout_marginTop="10dp"/>
             <EditText
-                android:layout_width="50dp"
+                android:layout_width="75dp"
                 android:layout_height="match_parent"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_below="@+id/text_neutralWireDiameter"
                 android:id="@+id/editText_neutralWireDiameter"/>
             <Button

@@ -11,10 +11,10 @@ public class nominalDiameterAdapterSetter {
 
     private String[] arraySpinner;
 
-    public void nominalDiameterAdapterSetter(){
+    public void nominalDiameterAdapterSetter() {
     }
 
-    public String[] nominalDiameterAdapterSetter(long id){
+    public String[] nominalDiameterAdapterSetter(long id) {
         if (id == 0) {
 
             arraySpinner = new String[]{
@@ -99,7 +99,7 @@ public class nominalDiameterAdapterSetter {
             };
 
             return arraySpinner;
-        }else{
+        } else {
             return null;
         }
     }
