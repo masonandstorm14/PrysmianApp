@@ -22,12 +22,14 @@
         android:id="@+id/spin_ConductorType"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:background="@color/gray"
         android:entries="@array/conductor_array" />
 
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/spin_Circuit"
+        android:background="@color/gray"
         android:layout_below="@+id/spin_ConductorType"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"

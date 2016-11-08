@@ -23,6 +23,7 @@
                 android:layout_below="@id/Text_conduitType"
                 android:spinnerMode="dropdown"
                 android:entries="@array/conduitType"
+                android:background="@color/gray"
                 android:id="@+id/spin_conduit">
             </Spinner>
 
@@ -36,6 +37,7 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/gray"
                 android:layout_below="@+id/text_insideDiameter"
                 android:id="@+id/spin_insideDiameter">
             </Spinner>
